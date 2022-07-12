@@ -1,6 +1,5 @@
 package pl.kurs.app;
 
-import pl.kurs.comparators.FigureComparator;
 import pl.kurs.models.Figure;
 import pl.kurs.models.Square;
 
@@ -32,18 +31,13 @@ public class Runner {
             e.printStackTrace();
         }
         System.out.println();
-        System.out.println("Figury sortowane wg. pola od największego do najmniejszego");
 
+        Figure.ustalDomyslneSortowanie(Figure.KryteriumSortowania.KRYETRIUM_POLE);
         Collections.sort(figury);
         for (Figure f : figury) {
             System.out.println(f);
         }
-        System.out.println();
-        System.out.println("Sortowanie najpierw po nazwie klasy, następnie po polu");
-        Collections.sort(figury, new FigureComparator());
-        for (Figure f : figury) {
-            System.out.println(f);
-        }
+
 
 
         System.out.println();
