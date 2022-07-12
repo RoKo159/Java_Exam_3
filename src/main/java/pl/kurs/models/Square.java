@@ -1,42 +1,42 @@
-package pl.kurs;
+package pl.kurs.models;
 
 import java.util.Objects;
 
-public class Rectangle extends Figure {
+public class Square extends Figure {
     private int a;
-    private int b;
 
-    public Rectangle(int a, int b) {
+    public Square(int a) {
+        super();
         this.a = a;
-        this.b = b;
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Rectangle rectangle = (Rectangle) o;
-        return a == rectangle.a && b == rectangle.b;
+        Square square = (Square) o;
+        return a == square.a;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(a, b);
+        return Objects.hash(a);
     }
 
     @Override
     public String toString() {
-        return "Figura nr " + figureNumber + ": Prostokąt o bokach " + a + "x" + b + ".";
+        return "Figura nr " + figureNumber + ": Kwadrat o boku " + a + ".";
     }
 
     @Override
     public double calculatePerimeter() {
-        return 2 * a + 2 * b;
+        return 4 * a;
     }
 
     @Override
     public double calculateArea() {
-        return a * b;
+        return a * a ;
     }
 
 
@@ -44,5 +44,4 @@ public class Rectangle extends Figure {
     public int compareTo(Figure o) {
         return Double.compare(o.calculateArea(),calculateArea());
     }
-
 }

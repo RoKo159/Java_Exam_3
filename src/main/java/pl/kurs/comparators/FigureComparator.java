@@ -1,4 +1,6 @@
-package pl.kurs;
+package pl.kurs.comparators;
+
+import pl.kurs.models.Figure;
 
 import java.util.Comparator;
 

@@ -1,4 +1,8 @@
-package pl.kurs;
+package pl.kurs.app;
+
+import pl.kurs.comparators.FigureComparator;
+import pl.kurs.models.Figure;
+import pl.kurs.models.Square;
 
 import java.io.*;
 import java.util.Arrays;

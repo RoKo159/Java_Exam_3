@@ -1,4 +1,4 @@
-package pl.kurs;
+package pl.kurs.models;
 
 
 public abstract class Figure implements Comparable<Figure> {
