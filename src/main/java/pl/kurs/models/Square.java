@@ -40,8 +40,5 @@ public class Square extends Figure {
     }
 
 
-    @Override
-    public int compareTo(Figure o) {
-        return Double.compare(o.calculateArea(),calculateArea());
-    }
+
 }
