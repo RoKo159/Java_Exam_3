@@ -1,7 +1,11 @@
 package pl.kurs.models;
 
 
-public abstract class Figure implements Comparable<Figure> {
+import java.io.Serializable;
+
+public abstract class Figure implements Comparable<Figure>, Serializable {
+
+    static final long serialVersionUID = 1L;
 
     public enum KryteriumSortowania {
         KRYETRIUM_POLE,
