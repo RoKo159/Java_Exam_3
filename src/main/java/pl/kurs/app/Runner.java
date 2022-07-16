@@ -4,6 +4,7 @@ import pl.kurs.models.Figure;
 import pl.kurs.models.Square;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -21,15 +22,17 @@ public class Runner {
         System.out.println("Figura z największym polem " + getLargestAreaFigure(figury));
         System.out.println(figury.contains(new Square(10)));
 
+
         try (
-                FileWriter fw = new FileWriter("Figure.txt");
-                BufferedWriter bw = new BufferedWriter(fw)
-        ) {
-            bw.write(String.valueOf(figury));
-            bw.newLine();
+                FileOutputStream fos = new FileOutputStream("figure.txt");
+                ObjectOutputStream oos = new ObjectOutputStream(fos)
+                ){
+            oos.writeObject(figury);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         System.out.println();
 
         Figure.ustalDomyslneSortowanie(Figure.KryteriumSortowania.KRYETRIUM_POLE);
@@ -44,17 +47,17 @@ public class Runner {
         System.out.println("Odczytanie pliku");
 
 
+        List<Figure> figureList = null;
         try (
-                FileReader fr = new FileReader("Figure.txt");
-                BufferedReader br = new BufferedReader(fr);
-        ) {
-            String nextLine = null;
-            while ((nextLine = br.readLine()) != null) {
-                System.out.print(nextLine);
-            }
-        } catch (IOException e) {
+                FileInputStream fis = new FileInputStream("figure.txt");
+                ObjectInputStream ois = new ObjectInputStream(fis)
+                ){
+            figureList = (List<Figure>) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
-
+        }
+        for (Figure f: figureList) {
+            System.out.println(f);
         }
     }
 
